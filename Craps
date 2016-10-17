@@ -1,0 +1,76 @@
+import java.lang.Math; 
+import java.util.Scanner;
+
+public class CrapsGame {
+
+    public static void main(String[] args) {
+  int dice1 = 0;
+  int dice2 = 0;
+  int scorenew = 0;
+  int point = 0;
+  int wins = 0;
+  int loss = 0;
+ 
+  int cash;
+      
+    
+ Scanner scan = new Scanner(System.in); 
+  {
+  
+  	System.out.println ("How much would you like to bet?");
+    //cash = scan.nextInt();
+  }
+      {
+        
+        System.out.println ("OK roll the dice");
+    
+        dice1 = (int)(Math.random()*6) + 1;
+        dice2 = (int)(Math.random()*6) + 1;
+        
+        System.out.println ("\n dice1 = " + dice1 + " dice2 = " + dice2);
+        int score = dice1 + dice2;
+         System.out.println ("\n your score is " + score);
+        
+        if (score == 11 || score == 7)
+    {
+      System.out.println ("\n Score = " + score);
+      System.out.println ("you win");
+      wins = wins + 1;
+    }
+    if (score == 2 || score == 3 || score == 12)
+    {
+      System.out.println ("\n Score = " + score);
+      System.out.println ("you lose");
+      loss = loss + 1;
+    }
+    else if (score ==4 || score == 5 || score == 6 || score == 8 || score == 9 || score == 10)
+    {
+      point = point + score;
+      System.out.println ("\n You have  " + point + " points");
+    }
+     do
+      {
+        dice1 = (int)(Math.random()*6) + 1;
+        dice2 = (int)(Math.random()*6) + 1;
+        System.out.println ("\n New Score = " + scorenew);
+        if (scorenew == point)
+        {
+          System.out.println ("\n you win");
+          
+          point = 0;
+          break;
+        }
+        if (scorenew == 7)
+        {
+          System.out.println ("\n you lose");
+          point = 0;
+          
+          break;
+        }
+      } while (scorenew != point || scorenew != 7);
+        
+     
+        } 
+      }
+ 
+}
